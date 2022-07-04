@@ -12,32 +12,50 @@ interface HomeProps {
 
 export default function Home({ continents }: HomeProps) {
   return (
-    <Box paddingBottom="6">
+    <Box paddingBottom={["6", "8"]}>
       <Header />
       <HomeBanner />
 
-      <Flex justify="space-evenly" px="4" pt="8" wrap="wrap">
-        <ContinentAttraction>vida noturna</ContinentAttraction>
-        <ContinentAttraction>praia</ContinentAttraction>
-        <ContinentAttraction>moderno</ContinentAttraction>
-        <ContinentAttraction>clássico</ContinentAttraction>
-        <ContinentAttraction>e mais...</ContinentAttraction>
-      </Flex>
+      <Box maxWidth={1240} marginLeft="auto" marginRight="auto">
+        <SimpleGrid px="4" pt="8" columns={[2, 4, 5]} mb={["4", "6", "8"]}>
+          <ContinentAttraction imageSrc="./cocktail.svg">
+            vida noturna
+          </ContinentAttraction>
+          <ContinentAttraction imageSrc="./surf.svg">praia</ContinentAttraction>
+          <ContinentAttraction imageSrc="./building.svg">
+            moderno
+          </ContinentAttraction>
+          <ContinentAttraction imageSrc="./museum.svg">
+            clássico
+          </ContinentAttraction>
+          <ContinentAttraction imageSrc="./earth.svg">
+            e mais...
+          </ContinentAttraction>
+        </SimpleGrid>
 
-      <Center mb="4">
-        <Divider width="16" color="dark.text" />
-      </Center>
+        <Center mb={["4", "6", "8"]}>
+          <Divider width="16" color="dark.text" />
+        </Center>
 
-      <Flex direction="column" align="center" marginBottom="4">
-        <Text fontSize="xl" fontWeight="medium" color="dark.text">
-          Vamos nessa?
-        </Text>
-        <Text fontSize="xl" fontWeight="medium" color="dark.text">
-          Então escolha seu continente
-        </Text>
-      </Flex>
+        <Flex direction="column" align="center" mb={["4", "6", "8"]}>
+          <Text
+            fontSize={["xl", "3xl", "4xl"]}
+            fontWeight="medium"
+            color="dark.text"
+          >
+            Vamos nessa?
+          </Text>
+          <Text
+            fontSize={["xl", "3xl", "4xl"]}
+            fontWeight="medium"
+            color="dark.text"
+          >
+            Então escolha seu continente
+          </Text>
+        </Flex>
 
-      <Carousel continents={continents} />
+        <Carousel continents={continents} />
+      </Box>
     </Box>
   );
 }

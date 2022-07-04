@@ -53,7 +53,12 @@ export function Carousel({ continents }: CarouselProps) {
                     background="rgba(3,3,3, 0.45)"
                   >
                     <Link href={`/continent/${id}`}>
-                      <Flex as="a" direction="column" align="center">
+                      <Flex
+                        as="a"
+                        direction="column"
+                        align="center"
+                        cursor="pointer"
+                      >
                         <Text fontSize="2xl" fontWeight="bold">
                           {name}
                         </Text>

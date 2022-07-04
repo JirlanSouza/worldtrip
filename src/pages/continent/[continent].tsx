@@ -42,17 +42,24 @@ export default function Continent({ continent }: ContinentProps) {
     return (
       <>
         <Header />
-        <Flex width="100%" marginTop="4" align="center" justify="center">
-          <Text>Sem dados para este continente.</Text>
-        </Flex>
+        <Box maxWidth={1240} marginLeft="auto" marginRight="auto">
+          <Flex
+            width="100%"
+            marginTop={["4", "8"]}
+            align="center"
+            justify="center"
+          >
+            <Text>Sem dados para este continente.</Text>
+          </Flex>
+        </Box>
       </>
     );
   }
 
   return (
-    <Box paddingBottom={8}>
+    <Box paddingBottom={[8, 12]}>
       <Header />
-      <Box position="relative" height="150" overflow="hidden">
+      <Box position="relative" height={["150", "300", "500"]} overflow="hidden">
         <Flex
           align="center"
           justify="center"
@@ -65,105 +72,148 @@ export default function Continent({ continent }: ContinentProps) {
             {toFirstLetterUpperCase(continent.name)}
           </Text>
         </Flex>
-        <Img src={continent.imageUrl} />
+        <Img width={{ base: "auto", xl: "100%" }} src={continent.imageUrl} />
       </Box>
-      <Stack gap="6" marginTop={4} px={4}>
-        <Flex>
-          <Text fontSize="md" textAlign="justify">
-            {continent.description}
+      <Box maxWidth={1240} marginLeft="auto" marginRight="auto">
+        <Stack gap="6" marginTop={[4, 8]} px={4}>
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            justify="space-between"
+          >
+            <Flex>
+              <Text fontSize={["md", "lg", "xl"]} textAlign="justify">
+                {continent.description}
+              </Text>
+            </Flex>
+
+            <Flex
+              justify="space-around"
+              minWidth={460}
+              marginTop={{ sm: 8, md: 0 }}
+            >
+              <Flex flexDirection="column">
+                <Text
+                  fontSize={["3xl", "4xl", "4xl", "5xl"]}
+                  fontWeight="semibold"
+                  color="highlight.100"
+                >
+                  {continent.countryQuantity}
+                </Text>
+                <Text
+                  fontSize={["lg", "xl", "xl", "2xl"]}
+                  fontWeight="normal"
+                  color="dark.text"
+                  as="span"
+                >
+                  países
+                </Text>
+              </Flex>
+
+              <Flex flexDirection="column">
+                <Text
+                  fontSize={["3xl", "4xl", "4xl", "5xl"]}
+                  fontWeight="semibold"
+                  color="highlight.100"
+                >
+                  {continent.languagesQuantity}
+                </Text>
+                <Text
+                  fontSize={["lg", "xl", "xl", "2xl"]}
+                  fontWeight="normal"
+                  color="dark.text"
+                  as="span"
+                >
+                  línguas
+                </Text>
+              </Flex>
+
+              <Flex flexDirection="column">
+                <Text
+                  fontSize={["3xl", "4xl", "4xl", "5xl"]}
+                  fontWeight="semibold"
+                  color="highlight.100"
+                >
+                  {continent.cityQuantityInMostPopularDestinations}
+                </Text>
+                <Text
+                  fontSize={["lg", "xl", "xl", "2xl"]}
+                  fontWeight="normal"
+                  color="dark.text"
+                  as="span"
+                >
+                  cidades +100
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+
+          <Text
+            fontSize="x-large"
+            fontWeight="medium"
+            color="dark.text"
+            marginBottom={4}
+          >
+            Cidades +100
           </Text>
-        </Flex>
 
-        <Flex justify="space-around">
-          <Flex flexDirection="column">
-            <Text fontSize="3xl" fontWeight="semibold" color="highlight.100">
-              {continent.countryQuantity}
-            </Text>
-            <Text fontSize="lg" fontWeight="normal" color="dark.text" as="span">
-              países
-            </Text>
-          </Flex>
-
-          <Flex flexDirection="column">
-            <Text fontSize="3xl" fontWeight="semibold" color="highlight.100">
-              {continent.languagesQuantity}
-            </Text>
-            <Text fontSize="lg" fontWeight="normal" color="dark.text" as="span">
-              línguas
-            </Text>
-          </Flex>
-
-          <Flex flexDirection="column">
-            <Text fontSize="3xl" fontWeight="semibold" color="highlight.100">
-              {continent.cityQuantityInMostPopularDestinations}
-            </Text>
-            <Text fontSize="lg" fontWeight="normal" color="dark.text" as="span">
-              cidades +100
-            </Text>
-          </Flex>
-        </Flex>
-
-        <Text
-          fontSize="x-large"
-          fontWeight="medium"
-          color="dark.text"
-          marginBottom={4}
-        >
-          Cidades +100
-        </Text>
-        <SimpleGrid
-          gap={16}
-          columns={[1, 2, 3, 4]}
-          alignItems="center"
-          justifyContent="center"
-        >
-          {continent.citiesInMostPopularDestinations.map((city) => {
-            return (
-              <Box
-                key={city.name}
-                maxWidth={300}
-                minW={220}
-                height={280}
-                borderWidth={2}
-                borderColor="highlight.50"
-                borderRadius={8}
-                overflow="hidden"
-                margin="auto"
-              >
-                <Image
-                  src={city.imageUrl}
-                  alt="city"
-                  width="100%"
-                  maxHeight={180}
-                />
-
-                <Flex padding={6} align="center" justify="space-between">
-                  <Box>
-                    <Text fontSize="xl" fontWeight="semibold" color="dark.text">
-                      {city.name}
-                    </Text>
-                    <Text
-                      fontSize="medium"
-                      fontWeight="medium"
-                      lineHeight={8}
-                      color="dark.info.100"
-                    >
-                      {city.countyName}
-                    </Text>
-                  </Box>
+          <SimpleGrid
+            gap={16}
+            columns={[1, 2, 3, 4]}
+            alignItems="center"
+            justifyContent="center"
+          >
+            {continent.citiesInMostPopularDestinations.map((city) => {
+              return (
+                <Box
+                  key={city.name}
+                  maxWidth={300}
+                  minW={220}
+                  height={280}
+                  borderWidth={2}
+                  borderColor="highlight.50"
+                  borderRadius={8}
+                  overflow="hidden"
+                  margin="auto"
+                >
                   <Image
-                    width={8}
-                    height={8}
-                    borderRadius="50%"
-                    src={city.countryFlagUrl}
-                    alt="county flag"
+                    src={city.imageUrl}
+                    alt="city"
+                    width="100%"
+                    maxHeight={180}
                   />
-                </Flex>
-              </Box>
-            );
-          })}
-        </SimpleGrid>
-      </Stack>
+
+                  <Flex padding={6} align="center" justify="space-between">
+                    <Box>
+                      <Text
+                        fontSize="xl"
+                        fontWeight="semibold"
+                        color="dark.text"
+                      >
+                        {city.name}
+                      </Text>
+                      <Text
+                        fontSize="medium"
+                        fontWeight="medium"
+                        lineHeight={8}
+                        color="dark.info.100"
+                      >
+                        {city.countyName}
+                      </Text>
+                    </Box>
+                    <Image
+                      width={8}
+                      height={8}
+                      borderRadius="50%"
+                      src={city.countryFlagUrl}
+                      alt="county flag"
+                    />
+                  </Flex>
+                </Box>
+              );
+            })}
+          </SimpleGrid>
+        </Stack>
+      </Box>
     </Box>
   );
 }

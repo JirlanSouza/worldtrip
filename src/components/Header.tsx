@@ -9,7 +9,7 @@ export function Header() {
     <Box as="header">
       <Flex
         height={[50, 62, 100]}
-        maxWidth={1440}
+        maxWidth={1240}
         marginLeft="auto"
         marginRight="auto"
         align="center"
