@@ -1,6 +1,6 @@
 import { Flex, Icon, IconButton, Img } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { RiArrowLeftSLine } from "react-icons/ri";
 
 export function Header() {
   const router = useRouter();
@@ -18,7 +18,7 @@ export function Header() {
         <IconButton
           aria-label="return"
           variant="unstyled"
-          icon={<Icon as={RiArrowLeftLine} color="dark.text" />}
+          icon={<Icon as={RiArrowLeftSLine} color="dark.text" />}
           position="absolute"
           left="2"
           onClick={() => {
@@ -27,7 +27,7 @@ export function Header() {
         />
       )}
 
-      <Img src="/logo.svg" width="20" />
+      <Img src="/logo.svg" width={82} />
     </Flex>
   );
 }
